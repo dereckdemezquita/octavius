@@ -14,7 +14,7 @@ save_dated_df <- function(save_function, df, name) {
 
 	generate_dated_name <- function(name) {
 		date_time <- Sys.time() %>% as.character() %>% str_replace(" ", "_") %>% str_replace_all(":", "-")
-		date_time <- str_remove_all(date_time, "-")
+		date_time <- str_remove_all(date_time, "-") # Remove "-" from date names
 		dated_name <- paste(date_time, name, sep = "_")
 
 		return(dated_name)

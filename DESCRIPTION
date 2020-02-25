@@ -10,5 +10,5 @@ Description: Facilitating network inferencing and machine learning workflows
 License: MIT
 Encoding: UTF-8
 LazyData: true
-Depends: openxlsx
+Depends: openxlsx, tidyverse, dplyr
 RoxygenNote: 7.0.2.9000

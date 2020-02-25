@@ -19,5 +19,4 @@ Takes the names() of the data frame and a move command in natural language; 4 op
 }
 \examples{
 df_move_col(names(df), "colname20 first")
-df[df_move_col(names(df), "colname20 first")]
 }

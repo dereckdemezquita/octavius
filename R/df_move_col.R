@@ -5,7 +5,6 @@
 #' @param movecommand a string with the name of the column followed by the move command
 #' @details "after", "before", "first", "last"; are possible as string commands for movement.
 #' @examples df_move_col(names(df), "colname20 first")
-#' @examples df[df_move_col(names(df), "colname20 first")]
 #' @export
 df_move_col <- function (invec, movecommand) {
 	movecommand <- lapply(strsplit(strsplit(movecommand, ";")[[1]],

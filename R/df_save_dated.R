@@ -5,7 +5,7 @@
 #' @param df A data frame
 #' @param name A name for the file
 #' @export
-save_dated_df <- function(save_function, df, name) {
+df_save_dated <- function(save_function, df, name) {
 	save_function_class <- class(save_function)
 	name_class <- class(name)
 	if(save_function != "character" && name_class != "character") {

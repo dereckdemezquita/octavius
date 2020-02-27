@@ -4,12 +4,12 @@
 \alias{df_save_dated}
 \title{A function for easily saving time stamped data frames.}
 \usage{
-df_save_dated(save_function, df, name)
+df_save_dated(df, save_function, name)
 }
 \arguments{
-\item{save_function}{A file format either "excel" or "robject"; must be class of character}
-
 \item{df}{A data frame}
+
+\item{save_function}{A file format either "excel" or "robject"; must be class of character}
 
 \item{name}{A name for the file}
 }

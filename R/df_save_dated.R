@@ -25,7 +25,7 @@ df_save_dated <- function(df, save_function, name) {
 		write.xlsx(df, file = dated_excel_name, colNames = TRUE, rowNames = TRUE)
 	} else if(save_function == "csv") {
 		dated_csv_name <- generate_dated_name(name) %>% paste(".csv", sep = "")
-		write.csv(df, file = dated_csv_name, colNames = TRUE, rowNames = TRUE)
+		write.csv(df, file = dated_csv_name)
 	} else if(save_function == "robject") {
 		dated_robject_name <- generate_dated_name(name) %>% paste(".RData", sep = "")
 		save(df, file = dated_robject_name)

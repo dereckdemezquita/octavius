@@ -5,7 +5,7 @@
 #' @param df A data frame
 #' @param name A name for the file
 #' @export
-df_save_dated <- function(save_function, df, name) {
+df_save_dated <- function(df, save_function, name) {
 	save_function_class <- class(save_function)
 	name_class <- class(name)
 	if(save_function != "character" && name_class != "character") {
@@ -22,11 +22,14 @@ df_save_dated <- function(save_function, df, name) {
 
 	if(save_function == "excel") {
 		dated_excel_name <- generate_dated_name(name) %>% paste(".xlsx", sep = "")
-		write.xlsx(df, file = dated_excel_name, colNames = TRUE, rowNames = TRUE, borders = "surrounding")
+		write.xlsx(df, file = dated_excel_name, colNames = TRUE, rowNames = TRUE)
+	} else if(save_function == "csv") {
+		dated_csv_name <- generate_dated_name(name) %>% paste(".csv", sep = "")
+		write.csv(df, file = dated_csv_name, colNames = TRUE, rowNames = TRUE)
 	} else if(save_function == "robject") {
 		dated_robject_name <- generate_dated_name(name) %>% paste(".RData", sep = "")
 		save(df, file = dated_robject_name)
 	} else {
-		message("Please select either \"excel\" or \"robject\" for a \"save_function\".")
+		message("Please select either \"excel\", \"csv\", or \"robject\" for a \"save_function\".")
 	}
 }

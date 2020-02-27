@@ -1,5 +1,6 @@
-#' Function for rounding all values in a data frame keeping them in the numeric type.
+#' Round all values in a data frame
 #'
+#' Function for rounding all values in a data frame keeping them in the numeric type.
 #' Takes two variables, a data frame and a number to round to.
 #' @param df a data frame input.
 #' @param digits a number to which the values will be rounded to.

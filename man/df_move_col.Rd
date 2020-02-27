@@ -2,20 +2,21 @@
 % Please edit documentation in R/df_move_col.R
 \name{df_move_col}
 \alias{df_move_col}
-\title{A function for easily moving cols in df with natural language}
+\title{Move data frame columns with natural language}
 \usage{
-df_move_col(invec, movecommand)
+df_move_col(vec, movecommand)
 }
 \arguments{
-\item{invec}{the names(df) for a data frame}
+\item{vec}{Get the names(df) of data frame; vector.}
 
-\item{movecommand}{a string with the name of the column followed by the move command}
+\item{movecommand}{a string with the name of the column followed by the move command.}
 }
 \description{
-Takes the names() of the data frame and a move command in natural language; 4 options
+A function for easily moving cols in df with natural language.
+Takes the names() of the data frame and a move command in natural language; 4 options.
 }
 \details{
-"after", "before", "first", "last"; are possible as string commands for movement.
+"after", "before", "first", "last"; are possible as string commands for movement. The column names should be input as a vector; use names(df) command.
 }
 \examples{
 df_move_col(names(df), "colname20 first")

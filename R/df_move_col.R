@@ -1,12 +1,13 @@
-#' A function for easily moving cols in df with natural language
+#' Move data frame columns with natural language
 #'
-#' Takes the names() of the data frame and a move command in natural language; 4 options
-#' @param invec the names(df) for a data frame
-#' @param movecommand a string with the name of the column followed by the move command
-#' @details "after", "before", "first", "last"; are possible as string commands for movement.
+#' A function for easily moving cols in df with natural language.
+#' Takes the names() of the data frame and a move command in natural language; 4 options.
+#' @param vec Get the names(df) of data frame; vector.
+#' @param movecommand a string with the name of the column followed by the move command.
+#' @details "after", "before", "first", "last"; are possible as string commands for movement. The column names should be input as a vector; use names(df) command.
 #' @examples df_move_col(names(df), "colname20 first")
 #' @export
-df_move_col <- function (invec, movecommand) {
+df_move_col <- function (vec, movecommand) {
 	movecommand <- lapply(strsplit(strsplit(movecommand, ";")[[1]],
 								   ",|\\s+"), function(x) x[x != ""])
 	movelist <- lapply(movecommand, function(x) {
@@ -15,7 +16,7 @@ df_move_col <- function (invec, movecommand) {
 		ToMove <- setdiff(x, Where)
 		list(ToMove, Where)
 	})
-	myVec <- invec
+	myVec <- vec
 	for (i in seq_along(movelist)) {
 		temp <- setdiff(myVec, movelist[[i]][[1]])
 		A <- movelist[[i]][[2]][1]

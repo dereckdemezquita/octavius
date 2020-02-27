@@ -2,7 +2,7 @@
 % Please edit documentation in R/df_round_values.R
 \name{df_round_values}
 \alias{df_round_values}
-\title{Function for rounding all values in a data frame keeping them in the numeric type.}
+\title{Round all values in a data frame}
 \usage{
 df_round_values(df, digits)
 }
@@ -12,5 +12,6 @@ df_round_values(df, digits)
 \item{digits}{a number to which the values will be rounded to.}
 }
 \description{
+Function for rounding all values in a data frame keeping them in the numeric type.
 Takes two variables, a data frame and a number to round to.
 }

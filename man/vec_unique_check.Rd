@@ -4,7 +4,7 @@
 \alias{vec_unique_check}
 \title{Vector values unique check}
 \usage{
-vec_unique_check(vec)
+vec_unique_check(vector)
 }
 \arguments{
 \item{vec}{A vector of any kind, can contain logicals or characters etc.}

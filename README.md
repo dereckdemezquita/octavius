@@ -16,6 +16,14 @@ library(devtools)
 install_github("dereckdemezquita/octavius")
 ```
 
+If you are not getting updates try:
+
+```
+remove.packages("octavius")
+devtools::install_github("dereckdemezquita/octavius", force = TRUE)
+library("octavius")
+```
+
 ## Package information
 * Author: Dereck de Mézquita
 * Affiliation: University Paris-Saclay

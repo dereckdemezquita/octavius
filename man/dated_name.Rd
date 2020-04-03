@@ -4,7 +4,7 @@
 \alias{dated_name}
 \title{Time stamped string}
 \usage{
-dated_name(name)
+dated_name(name, sep)
 }
 \arguments{
 \item{name}{A name to concatenate as a suffix.}

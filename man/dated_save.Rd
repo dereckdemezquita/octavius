@@ -4,7 +4,7 @@
 \alias{dated_save}
 \title{Save time stamped file}
 \usage{
-dated_save(input, save_function, name)
+dated_save(input, save_function, name, sep)
 }
 \arguments{
 \item{input}{A data frame.}

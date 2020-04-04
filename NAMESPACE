@@ -2,6 +2,8 @@
 
 export(dated_name)
 export(dated_save)
+export(dfRmvStr)
 export(df_round_values)
 export(octavius)
+export(parseDot)
 export(plot_reset_par)

@@ -8,7 +8,7 @@
 #' @param file A file path as a string.
 #' @export
 parseDot <- function(file) { # Will output two vars globally: dot_data, dot_meta; both concatenated with the dim size of the recovered file
-	dot <- read.csv(carn1, header = FALSE, sep = "-")
+	dot <- read.csv(file, header = FALSE, sep = "-")
 	dim <- eval({dim(dot)[1]}) %>% as.character()
 
 	dot_data_nm <- paste("dot_data", dim, sep = "_")

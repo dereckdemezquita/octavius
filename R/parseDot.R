@@ -23,6 +23,7 @@ parseDot <- function(file) { # Will output two vars globally: dot_data, dot_meta
 	dot_data_tmp <- dfRmvStr(dot_data, str1 = ">", str2 = " \\[", str3 =  "\\]", rep2 = ", ")
 
 	dot_data <- separate(dot_data_tmp, col = "target", into = c("target", "penwidth", "colour", "arrow"), sep = ",", remove = FALSE) # Final data output
+	dot_data <-dfRmvStr(dot_data, str1 = "penwidth=", str2 = "color=", str2 = "arrowhead=", rep1 = "", rep2 = "", rep3 = "")
 
 	assign(dot_data_nm, value = dot_data, pos = 1) # Assign in the outer envir
 
@@ -37,8 +38,9 @@ parseDot <- function(file) { # Will output two vars globally: dot_data, dot_meta
 	names(dot_meta_btm)[names(dot_meta_btm) == "colour"] <- "fill"
 
 	dot_meta <- bind_rows(dot_meta_top[c("gene", "style", "colour", "fill", "shape")], dot_meta_btm[c("gene", "style", "fill")]) # Final meta data output
+	dot_meta <- dfRmvStr(dot_meta, str1 = "style=", str2 = "color=", str2 = "fillcolor=", rep1 = "", rep2 = "", rep3 = "") %>% dfRmvStr(str1 = "shape=", rp1 = "")
 
 	assign(dot_meta_nm, value = dot_meta, pos = 1) # Assign in the outer envir
 
-	print(glue::glue("Succesfully created the following output variables: {dot_data_nm}, {dot_meta_nm}."))
+	message(glue::glue("Succesfully created the following output variables: {dot_data_nm}, {dot_meta_nm}."))
 }

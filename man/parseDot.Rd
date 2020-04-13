@@ -4,7 +4,7 @@
 \alias{parseDot}
 \title{Parse .dot graph files to data frames}
 \usage{
-parseDot(file)
+parseDot(file, name)
 }
 \arguments{
 \item{file}{A file path as a string.}

@@ -15,6 +15,8 @@ Imports:
     tidyverse,
     dplyr,
     utils,
-    VennDiagram
-Depends: openxlsx, tidyverse, dplyr, utils, VennDiagram
+    VennDiagram,
+    servr,
+    rstudioapi
+Depends: openxlsx, tidyverse, dplyr, utils, VennDiagram, servr, rstudioapi
 RoxygenNote: 7.1.0

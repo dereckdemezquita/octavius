@@ -13,7 +13,10 @@ parseDot <- function(file) {
 	data <- read.csv(file, header = FALSE, sep = "-")
 	colnames(data) <- c("origin", "target")
 
+	.PreprocessorCache <- new.env()
+
 	setClass(Class = "dotInfo",
+			 where = .PreprocessorCache,
 			 slots = c(data = "data.frame", meta = "data.frame"))
 
 	dotInfo <- new("dotInfo")
@@ -46,5 +49,4 @@ parseDot <- function(file) {
 	message(glue::glue("Instantiated as class parts. Use @ to access."))
 	print(head(dotInfo@data)); print(head(dotInfo@meta))
 	return(dotInfo)
-
 }

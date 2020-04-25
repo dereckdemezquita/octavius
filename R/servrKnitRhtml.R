@@ -28,6 +28,7 @@ servrKnitRhtml <- function(save = TRUE, input = "index.Rhtml", clear_cache = TRU
 	if(nchar(wd) == 0) {
 		wd <- getFileWd()
 	};
+
 	servr::daemon_stop(which = daemon_list()); # Kills all currently open servers
 
 	knitr::clean_cache(clean = clear_cache); # Will clear cache by default
@@ -46,6 +47,7 @@ servrKnitRhtml <- function(save = TRUE, input = "index.Rhtml", clear_cache = TRU
 				pattern = output,
 				all_files = TRUE,
 				port = port);
+
 	rstudioapi::viewer(glue::glue("{localhost}/{output}"));
 
 	message(glue::glue("File exported to: {output},\n Server launched on: {localhost}\n Current wd set to: {wd}."))

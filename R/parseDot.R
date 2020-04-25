@@ -1,47 +1,50 @@
 #' Parse .dot graph files to data frames
 #'
 #' A function for parsing .dot type files (specifically those produced by the saez/CARNIVAL package), into data frames.
+#'
 #' Good for analysing and comparing results; in human readable formats or otherwise.
+#'
 #' Takes a file path or name as a string; be sure to be in the correct working directory.
-#' Will output two variables, `dot_data`, and `dot_meta` both concatenated with the raw `dim()[1]` size of the input; this is the number of lines in the file.
-#' Will print names of output variables.
+#' Sets and instatiates a class, returns to variable; use `@` to access the sets relating to this functions results.
+#'
 #' @param file A file path as a string.
 #' @export
-parseDot <- function(file, name) { # Will output two vars globally: dot_data, dot_meta; both concatenated with the dim size of the recovered file
-	dot <- read.csv(file, header = FALSE, sep = "-")
-	dim <- eval({dim(dot)[1]}) %>% as.character()
+parseDot <- function(file) {
+	data <- read.csv(dot1Path, header = FALSE, sep = "-")
+	colnames(data) <- c("origin", "target")
 
-	dot_data_nm <- paste("dot_data", dim, sep = "_")
-	dot_meta_nm <- paste("dot_meta", dim, sep = "_")
+	setClass(Class = "dotInfo",
+			 slots = c(data = "data.frame", meta = "data.frame"))
 
-	colnames(dot) <- c("origin", "target")
+	dotInfo <- new("dotInfo")
 
-	dot_data <- dot[-which(dot$target == ""), ]
-	dot_meta <- dot[which(dot$target == ""), ] %>% head(-1) %>% tail(-1)
-	dot_meta$target <- NULL
+	dotInfo@data <- data[-which(data$target == ""), ]
+	dotInfo@meta <- data[which(data$target == ""), ] %>% head(-1) %>% tail(-1)
+	dotInfo@meta$target <- NULL
 
 
-	dot_data_tmp <- dfRmvStr(dot_data, str1 = ">", str2 = " \\[", str3 =  "\\]", rep2 = ", ")
-	dot_data_tmp <- dfRmvStr(dot_data_tmp, str1 = " penwidth=", str2 = " color=", str3 = " arrowhead=")
+	data_tmp <- dfRmvStr(dotInfo@data, str1 = ">", str2 = " \\[", str3 =  "\\]", rep2 = ", ")
+	data_tmp <- dfRmvStr(data_tmp, str1 = " penwidth=", str2 = " color=", str3 = " arrowhead=")
 
-	dot_data <- separate(dot_data_tmp, col = "target", into = c("target", "penwidth", "colour", "arrow"), sep = ",", remove = FALSE) # Final data output
+	dotInfo@data <- separate(data_tmp, col = "target", into = c("target", "penwidth", "colour", "arrow"), sep = ",", remove = FALSE) # Final data output
 
-	assign(dot_data_nm, value = dot_data, pos = 1) # Assign in the outer envir
 
-	dot_meta_tmp <- dfRmvStr(dot_meta, str1 = " \\[", str2 = "\\];", rep1 = ", ", rep2 = "")
-	dot_data_tmp <- dfRmvStr(dot_meta_tmp, str1 = " style=", str2 = " color=", str3 = " fillcolor=") %>% dfRmvStr(str1 = " shape=")
 
-	dot_meta_all <- separate(dot_data_tmp, col = "origin", into = c("gene", "style", "colour", "fill", "shape"), sep = ",", remove = TRUE)
+	meta_tmp <- dfRmvStr(dotInfo@meta, str1 = " \\[", str2 = "\\];", rep1 = ", ", rep2 = "")
+	meta_tmp <- dfRmvStr(meta_tmp, str1 = " style=", str2 = " color=", str3 = " fillcolor=") %>% dfRmvStr(str1 = " shape=")
 
-	dot_meta_top <- dot_meta_all[rowSums(!is.na(dot_meta_all)) == 5,]
-	dot_meta_btm <- dot_meta_all[rowSums(!is.na(dot_meta_all)) != 5,]
+	meta_all <- separate(meta_tmp, col = "origin", into = c("gene", "style", "colour", "fill", "shape"), sep = ",", remove = TRUE)
 
-	dot_meta_btm[,4:5] <- NULL
-	names(dot_meta_btm)[names(dot_meta_btm) == "colour"] <- "fill"
+	meta_top <- meta_all[rowSums(!is.na(meta_all)) == 5,]
+	meta_btm <- meta_all[rowSums(!is.na(meta_all)) != 5,]
 
-	dot_meta <- bind_rows(dot_meta_top[c("gene", "style", "colour", "fill", "shape")], dot_meta_btm[c("gene", "style", "fill")]) # Final meta data output
+	meta_btm[,4:5] <- NULL
+	names(meta_btm)[names(meta_btm) == "colour"] <- "fill"
 
-	assign(dot_meta_nm, value = dot_meta, pos = 1) # Assign in the outer envir
+	dotInfo@meta <- bind_rows(meta_top[c("gene", "style", "colour", "fill", "shape")], meta_btm[c("gene", "style", "fill")]) # Final meta data output
 
-	message(glue::glue("Succesfully created the following output variables: {dot_data_nm}, {dot_meta_nm}."))
+	message(glue::glue("Instantiated as class parts. Use @ to access."))
+	print(head(dotInfo@data)); print(head(dotInfo@meta))
+	return(dotInfo)
+
 }

@@ -4,15 +4,17 @@
 \alias{parseDot}
 \title{Parse .dot graph files to data frames}
 \usage{
-parseDot(file, name)
+parseDot(file)
 }
 \arguments{
 \item{file}{A file path as a string.}
 }
 \description{
 A function for parsing .dot type files (specifically those produced by the saez/CARNIVAL package), into data frames.
+}
+\details{
 Good for analysing and comparing results; in human readable formats or otherwise.
+
 Takes a file path or name as a string; be sure to be in the correct working directory.
-Will output two variables, `dot_data`, and `dot_meta` both concatenated with the raw `dim()[1]` size of the input; this is the number of lines in the file.
-Will print names of output variables.
+Sets and instatiates a class, returns to variable; use `@` to access the sets relating to this functions results.
 }

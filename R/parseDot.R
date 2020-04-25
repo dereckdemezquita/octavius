@@ -10,7 +10,7 @@
 #' @param file A file path as a string.
 #' @export
 parseDot <- function(file) {
-	data <- read.csv(dot1Path, header = FALSE, sep = "-")
+	data <- read.csv(file, header = FALSE, sep = "-")
 	colnames(data) <- c("origin", "target")
 
 	setClass(Class = "dotInfo",

@@ -4,7 +4,7 @@
 #' @details Has no inputs just run the function.
 #' @examples reset_par()
 #' @export
-plot_reset_par <- function() {
+resetPar <- function() {
 	op <-
 		structure(
 			list(

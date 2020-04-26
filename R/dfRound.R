@@ -5,7 +5,7 @@
 #' @param df a data frame input.
 #' @param digits a number to which the values will be rounded to.
 #' @export
-df_round_values <- function(df, digits) {
+dfRound <- function(df, digits) {
 	# round all numeric variables
 	# df: data frame
 	# digits: number of digits to round enter numeric type

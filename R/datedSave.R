@@ -6,14 +6,14 @@
 #' @param input A data frame.
 #' @param name A name for the file.
 #' @export
-dated_save <- function(input, save_function, name) {
+datedSave <- function(input, save_function, name) {
 	save_function_class <- class(save_function)
 	name_class <- class(name)
 	if(save_function != "character" && name_class != "character") {
 		stop("Please use character types for save_function and name inputs.")
 	}
 
-	dated_name <- dated_name(name)
+	dated_name <- datedName(name)
 
 	print(glue::glue("You saved {dated_name}"))
 

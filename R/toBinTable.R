@@ -9,8 +9,8 @@
 #' @param df A data frame object of TRUE/FALSE values; may also contain NAs.
 #' @param convertNA A numeric value to which convert NAs.
 #' @export
-toBinTable <- function(df, convertNA = 1) {
-	if(convertNA != 0 || convertNA != 1) {
+toBinTable <- function (df, convertNA = 1) {
+	if (convertNA != (0 || 1)) {
 		stop("convertNA should only be 0 or 1.")
 	}
 	for (i in 1:ncol(df)) {
@@ -19,7 +19,7 @@ toBinTable <- function(df, convertNA = 1) {
 		}
 	}
 	if (any(is.na(df)) == TRUE) {
-		df[ , 1:ncol(df)][is.na(df[ , 1:ncol(df)] ) ] = convertNA
+		df[, 1:ncol(df)][is.na(df[, 1:ncol(df)])] = convertNA
 		message(glue::glue("Converted NAs to {convertNA}."))
 	}
 	return(df)

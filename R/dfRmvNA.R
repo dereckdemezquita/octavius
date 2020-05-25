@@ -8,7 +8,7 @@
 #' @param col A string for selecting a column.
 #' @export
 dfRmvNA <- function(df, col = "") {
-	map <- !is.na(df$col)
+	map <- !is.na(df[,col])
 	df <- df[map,]
 	return(df)
 }

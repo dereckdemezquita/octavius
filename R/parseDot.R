@@ -15,8 +15,6 @@ parseDot <- function(file) {
 
 	dotInfo <- list()
 
-	dotInfo <- new("dotInfo")
-
 	dotInfo$data <- data[-which(data$target == ""), ]
 	dotInfo$meta <- data[which(data$target == ""), ] %>% head(-1) %>% tail(-1)
 	dotInfo$meta$target <- NULL

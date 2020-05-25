@@ -2,7 +2,7 @@
 #'
 #' A function for reseting margins for plots.
 #' @details Has no inputs just run the function.
-#' @examples reset_par()
+#' @examples resetPar()
 #' @export
 resetPar <- function() {
 	op <-

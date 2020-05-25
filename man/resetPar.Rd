@@ -13,5 +13,5 @@ A function for reseting margins for plots.
 Has no inputs just run the function.
 }
 \examples{
-reset_par()
+resetPar()
 }

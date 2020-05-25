@@ -16,5 +16,5 @@ A function for parsing .dot type files (specifically those produced by the saez/
 Good for analysing and comparing results; in human readable formats or otherwise.
 
 Takes a file path or name as a string; be sure to be in the correct working directory.
-Sets and instatiates a class, returns to variable; use `@` to access the sets relating to this functions results.
+Sets and instatiates a list, returns to variable; use `$` to access the sets relating to this functions results.
 }

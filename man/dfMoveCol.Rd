@@ -14,10 +14,8 @@ dfMoveCol(vec, movecommand)
 \description{
 A function for easily moving cols in df with natural language.
 Takes the names() of the data frame and a move command in natural language; 4 options.
+#' dfMoveCol(names(df), "colname20 first")
 }
 \details{
 "after", "before", "first", "last"; are possible as string commands for movement. The column names should be input as a vector; use names(df) command.
-}
-\examples{
-dfMoveCol(names(df), "colname20 first")
 }

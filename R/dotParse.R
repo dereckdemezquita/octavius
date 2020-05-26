@@ -9,7 +9,7 @@
 #'
 #' @param file A file path as a string.
 #' @export
-parseDot <- function(file) {
+dotParse <- function(file) {
 	data <- read.csv(file, header = FALSE, sep = "-")
 	colnames(data) <- c("origin", "target")
 

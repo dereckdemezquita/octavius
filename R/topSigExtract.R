@@ -13,6 +13,6 @@ topSigExtract <- function(res, alpha = 0.1) {
 	res <- dfRmvNA(res, col = "padj")
 	topSig <- res[res$padj <= alpha,]
 
-	topSig <- topSig[order(-abs(topSig$log2FoldChange, topSig$padj)),]
+	topSig <- topSig[order(-abs(topSig$log2FoldChange), topSig$padj),]
 	return(topSig)
 }

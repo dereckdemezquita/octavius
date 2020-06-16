@@ -11,9 +11,9 @@ dfDeconcat <- function(df, pattern) {
 	split_genes <- strsplit(rownames(df), pattern, fixed = TRUE)
 
 	split_genes_lengths <- sapply(split_genes, length)
-	res_cat_tmp <- res[rep(1:nrow(df), split_genes_lengths), ]
-	rownames(res_cat_tmp) <- unlist(split_genes)
+	deconcat <- df[rep(1:nrow(df), split_genes_lengths), ]
+	rownames(deconcat) <- unlist(split_genes)
 
-	df <- res_cat_tmp
+	df <- deconcat
 	return(df)
 }

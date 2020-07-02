@@ -14,6 +14,5 @@ dfDeconcat <- function(df, pattern) {
 	deconcat <- df[rep(1:nrow(df), split_genes_lengths), ]
 	rownames(deconcat) <- unlist(split_genes)
 
-	df <- deconcat
-	return(df)
+	return(deconcat)
 }

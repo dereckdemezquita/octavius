@@ -17,6 +17,7 @@ Imports:
     utils,
     VennDiagram,
     servr,
-    rstudioapi
-Depends: openxlsx, tidyverse, dplyr, utils, VennDiagram, servr, rstudioapi
+    rstudioapi,
+    maptools
+Depends: openxlsx, tidyverse, dplyr, utils, VennDiagram, servr, rstudioapi, maptools
 RoxygenNote: 7.1.0.9000

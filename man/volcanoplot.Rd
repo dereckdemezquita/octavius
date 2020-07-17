@@ -24,41 +24,6 @@ volcanoplot(
   nsigcex = 1
 )
 }
-\arguments{
-\item{df}{A data frame type object first column log2FoldChange, column two is padj.}
-
-\item{pcutoff}{Default set to 0.05, these are p adjusted values, function originally made to work with DESeq2 results which uses an FDR correction. Check you values compatibility for correct usage.}
-
-\item{lcutoff}{Default set to 1, this is the absolute value at which the log2FoldChange will be cutoff. 1 Is the defaulte but when working with log2FoldChange 0.5 can be biologically relevant as it is indeed a 41% increase in expression over the controls.}
-
-\item{nlabs}{Default set to 10, this is the number of points that will have labels associated to them on the plot. Reduce the number to avoid overlapping labels and only set those that are most over/under-expressed AND are statistically significant. Internal function topSigExtract() used.}
-
-\item{xlim}{Default set to NULL, this is the x axis limits of the plot. Plot first then set according to needs.}
-
-\item{ylim}{Default set to NULL, this is the y axis limits of the plot. Plot first then set according to needs.}
-
-\item{ptype}{Default set to 20, this is the type of points used on the plot. Default is round circle.}
-
-\item{psize}{Default set to 1cm. This is the point size on the plot.}
-
-\item{main}{Default set to `Volcano plot\n Cutoffs: padj < 0.05, abs(lg2fc) > 1`.}
-
-\item{sub}{Default set to empty string "".}
-
-\item{ldispmethod}{Default set to "SANN", using the "maptools" library, "SANN" or "GA" are possible. This is the algorithm by which the point labels are dispersed to avoid overlaps.}
-
-\item{lcex}{Default set to 1, this is the point labels size.}
-
-\item{lpos}{Default set to 2, this is the point label position relative to the point.}
-
-\item{loffset}{Default set to 0.75, this is the point label offset from the point; or distance.}
-
-\item{xnsig}{Default set to 0, this is the x position for the plot information text; it states the number of DEGs and the parameters used to determine cutoffs.}
-
-\item{ynsig}{Default set to -10, this is the y position for the plot information text; it states the number of DEGs and the parameters used to determine cutoffs.}
-
-\item{nsigcex}{Default set to 0, this is the text size for the plot information text; it states the number of DEGs and the parameters used to determine cutoffs.}
-}
 \description{
 Creates simple volcano plot based on base R graphics. Highly customisable and allows for deeper arguments.
 }

@@ -4,20 +4,17 @@ Title: Octavius; network inferencing and machine learning tool-kit
 Version: 0.1.0
 Author: Dereck de Mézquita
 Maintainer: Dereck de Mézquita <dereck@demezquita.com>
-Description: Facilitating network inferencing and machine learning workflows
+Description: Facilitating network inference and machine learning workflows
 	Contains various functions developed over my time at GenHotel
 	Great for manipulating large transcriptomic data frames.
 License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports:
-    openxlsx,
     tidyverse,
-    dplyr,
     utils,
     VennDiagram,
-    servr,
     rstudioapi,
     maptools
-Depends: openxlsx, tidyverse, dplyr, utils, VennDiagram, servr, rstudioapi, maptools
-RoxygenNote: 7.1.0.9000
+Depends: tidyverse, utils, VennDiagram, rstudioapi, maptools
+RoxygenNote: 7.1.1

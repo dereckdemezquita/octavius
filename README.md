@@ -2,9 +2,7 @@
 
 ## A network inference and machine learning tool-kit
 
-Facilitating network inferencing and machine learning workflows
-Contains various functions developed over my time at GenHotel
-Great for manipulating large transcriptomic data, fine tuning, and analysing machine learning results.
+Facilitating network inference and machine learning workflows. Contains various functions developed over my time at GenHotel. Great for manipulating large transcriptomic data, fine tuning, and analysing machine learning results.
 
 ___
 

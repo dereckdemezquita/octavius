@@ -1,9 +1,10 @@
-# Octavius
-## A network inferencing and machine learning tool-kit
+# octavius <img src="./images/octavius-logo.png" width="200" align="right">
+
+## A network inference and machine learning tool-kit
 
 Facilitating network inferencing and machine learning workflows
 Contains various functions developed over my time at GenHotel
-Great for manipulating large transcriptomic data.
+Great for manipulating large transcriptomic data, fine tuning, and analysing machine learning results.
 
 ___
 
@@ -23,6 +24,7 @@ library("octavius")
 ```
 
 ## Package information
+
 * Author: Dereck de Mézquita
 * Affiliation: University Paris-Saclay
 * Department: GenHotel
